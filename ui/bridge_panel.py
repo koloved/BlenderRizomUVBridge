@@ -90,10 +90,10 @@ class RizomUVSettingsPanel(bpy.types.Panel):
 class RizomUVPanelProperties(bpy.types.PropertyGroup):
     """Properties that can be changed in panel"""
 
-    script_run_des = "Run a LUA script when Rizom launches."
+    script_run_des = "Run a LUA script when Rizom launches"
     script_run: bpy.props.EnumProperty(
-        name="Export", default='SHARP_EDGES', items=(
-            ('EDIT_UV', "Standard Export",
+        name="", default='SHARP_EDGES', items=(
+            ('EDIT_UV', "No Script",
              "Exports current UV layout in its present condition."),
             ('SHARP_EDGES', "Sharp Edges Unwrap",
              "Performs a quick auto unwrap using the sharp edges algorithm."),
@@ -103,7 +103,7 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
     )
 
     # RizomUV settings
-    shell_pad_des = "Pixel padding between each UV island."
+    shell_pad_des = "Pixel padding between each UV island"
     shell_pad: bpy.props.IntProperty(name="Island Padding", default=16, min=0,
                                      subtype='PIXEL', soft_max=32,
                                      description=shell_pad_des)
@@ -112,12 +112,12 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
     map_res: bpy.props.IntProperty(name="Map Resolution", default=2048, min=0,
                                    subtype='PIXEL', description=map_res_des)
 
-    image_path_des = "Texture to be loaded into RizomUV."
+    image_path_des = "Texture to be loaded into RizomUV"
     image_path: bpy.props.StringProperty(name="", subtype='FILE_PATH',
                                          default="Texture Image (optional)",
                                          description=image_path_des)
 
-    init_orient_des = "Pre-orient islands by bounding box before packing."
+    init_orient_des = "Pre-orient islands by bounding box before packing"
     init_orient: bpy.props.EnumProperty(
         name="", default='0', items=(
             ('0', "No Pre-Orientation",
@@ -129,6 +129,6 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
         ), description=init_orient_des
     )
 
-    orient_step_des = "Step angle for finding best orientation while packing."
+    orient_step_des = "Step angle for finding best orientation while packing"
     orient_step: bpy.props.IntProperty(name="Step Angle", default=45, min=0,
                                        max=180, subtype='ANGLE')
