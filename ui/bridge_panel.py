@@ -4,8 +4,6 @@
 
 import bpy
 
-# 1C222F
-
 
 class RizomUVPanel(bpy.types.Panel):
     """Main UI panel"""
@@ -21,6 +19,7 @@ class RizomUVPanel(bpy.types.Panel):
         """Draw the UI."""
 
         win_manager = context.window_manager
+        sel = bpy.context.active_object
 
         layout = self.layout
         box = layout.box()
@@ -38,10 +37,14 @@ class RizomUVPanel(bpy.types.Panel):
 
         row = box.row(align=True)
         row.scale_y = 1.25
+        if not sel:
+            row.enabled = False
         row.operator("ma.rizom_export", text="Export")
 
         row = box.row(align=True)
         row.scale_y = 1.25
+        if not sel:
+            row.enabled = False
         row.operator("ma.rizom_import", text="Import")
 
         row = box.row(align=True)
@@ -92,7 +95,7 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
 
     script_run_des = "Run a LUA script when Rizom launches"
     script_run: bpy.props.EnumProperty(
-        name="", default='SHARP_EDGES', items=(
+        name="", default='MOSAIC', items=(
             ('EDIT_UV', "No Script",
              "Exports current UV layout in its present condition."),
             ('SHARP_EDGES', "Sharp Edges Unwrap",
@@ -119,7 +122,7 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
 
     init_orient_des = "Pre-orient islands by bounding box before packing"
     init_orient: bpy.props.EnumProperty(
-        name="", default='0', items=(
+        name="", default='1', items=(
             ('0', "No Pre-Orientation",
              "Do not pre-orient islands."),
             ('1', "Horizontal Pre-Orientation",
