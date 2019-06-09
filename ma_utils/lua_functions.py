@@ -119,10 +119,9 @@ def write_script():
     lua_final.truncate(0)
 
     for string in strings:
-        lua_final.write(string)
+        lua_final.write(" ".join([string]))
 
-    lua_final.write(preset_content)
-    lua_final.write(save)
+    lua_final.write(" ".join([preset_content, save]))
 
     lua_final.close()
 
