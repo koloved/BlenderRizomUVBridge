@@ -16,7 +16,7 @@ class ExportToRizom(bpy.types.Operator):
     """Send the UVs to RizomUV."""
 
     bl_description = "Export objects to a temp file and open it in RizomUV"
-    bl_idname = "ma.rizom_export"
+    bl_idname = "ruv.rizom_export"
     bl_label = "Export (RizomUV)"
     bl_options = {'REGISTER', 'INTERNAL'}
 
@@ -71,7 +71,7 @@ class ImportFromRizom(bpy.types.Operator):
     """Get the UVs from RizomUV."""
 
     bl_description = "Import UVs from RizomUV"
-    bl_idname = "ma.rizom_import"
+    bl_idname = "ruv.rizom_import"
     bl_label = "Import (RizomUV)"
     bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 

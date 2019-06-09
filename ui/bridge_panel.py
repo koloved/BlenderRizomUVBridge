@@ -39,13 +39,13 @@ class RizomUVPanel(bpy.types.Panel):
         row.scale_y = 1.25
         if not sel:
             row.enabled = False
-        row.operator("ma.rizom_export", text="Export")
+        row.operator("ruv.rizom_export", text="Export")
 
         row = box.row(align=True)
         row.scale_y = 1.25
         if not sel:
             row.enabled = False
-        row.operator("ma.rizom_import", text="Import")
+        row.operator("ruv.rizom_import", text="Import")
 
         row = box.row(align=True)
         row.scale_y = 1.25
