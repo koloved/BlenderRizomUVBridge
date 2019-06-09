@@ -18,14 +18,14 @@ def script_paths(key):
 
     """
 
-    bridge_path = os.path.abspath(os.path.dirname(__file__))\
+    scripts_dir = os.path.abspath(os.path.dirname(__file__))\
         .replace("ma_utils", "lua_scripts\\")
 
     scripts_dic = {
-        'EDIT_UV': bridge_path + "blank.lua",
-        'SHARP_EDGES': bridge_path + "sharp_edge_algorithm.lua",
-        'MOSAIC': bridge_path + "mosaic_algorithm.lua",
-        'CONSTRUCT': bridge_path + "py_construct.lua"
+        'EDIT_UV': scripts_dir + "blank.lua",
+        'SHARP_EDGES': scripts_dir + "sharp_edge_algorithm.lua",
+        'MOSAIC': scripts_dir + "mosaic_algorithm.lua",
+        'CONSTRUCT': scripts_dir + "py_construct.lua"
     }
 
     script = scripts_dic[key]

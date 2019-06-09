@@ -4,12 +4,12 @@
 
 import os
 import subprocess
-import tempfile
 import bpy
 import rizomuv_bridge.ma_utils.utils as mutil
 import rizomuv_bridge.ma_utils.lua_functions as lua
 
-TEMP_PATH = tempfile.gettempdir() + os.sep + "rizom_temp.fbx"
+TEMP_PATH = os.path.abspath(os.path.dirname(__file__))\
+    .replace("operators", "temp_mesh\\rizom_temp_mesh.fbx")
 
 
 class ExportToRizom(bpy.types.Operator):
@@ -19,6 +19,12 @@ class ExportToRizom(bpy.types.Operator):
     bl_idname = "ruv.rizom_export"
     bl_label = "Export (RizomUV)"
     bl_options = {'REGISTER', 'INTERNAL'}
+
+    @classmethod
+    def poll(cls, context):
+        """Check context is correct to run the operator."""
+
+        return context.active_object is not None
 
     @staticmethod
     def export_file(context):
@@ -74,6 +80,12 @@ class ImportFromRizom(bpy.types.Operator):
     bl_idname = "ruv.rizom_import"
     bl_label = "Import (RizomUV)"
     bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
+
+    @classmethod
+    def poll(cls, context):
+        """Check context is correct to run the operator."""
+
+        return context.active_object is not None
 
     @staticmethod
     def import_file(context):
