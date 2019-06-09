@@ -38,6 +38,7 @@ class ExportToRizom(bpy.types.Operator):
 
         for obj in out_objs:
             bpy.data.objects[obj.name].select_set(True)
+            obj.modifiers.clear()
 
         bpy.ops.export_scene.fbx(
             filepath=TEMP_PATH, use_selection=True, global_scale=1.0,

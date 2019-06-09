@@ -39,3 +39,4 @@ def set_object_context(context_mode):  # pylint: disable=unused-argument
     bpy.ops.object.mode_set(mode=context_mode)
 
     return og_context
+
