@@ -15,9 +15,9 @@ bl_info = {  # pylint: disable=invalid-name
     "author": "MattA",
     "version": (0, 1, 0),
     "blender": (2, 80, 0),
-    "location": "View3D > Tools",
-    "wiki_url": "https://github.com/MattAshpole/BlenderRizomUVBridge/issues",
-    "tracker_url": "https://github.com/MattAshpole/BlenderRizomUVBridge/wiki",
+    "location": "View3D > Sidebar",
+    "wiki_url": "https://github.com/MattAshpole/BlenderRizomUVBridge/wiki",
+    "tracker_url": "https://github.com/MattAshpole/BlenderRizomUVBridge/issues",
     "category": "UV"
 }
 

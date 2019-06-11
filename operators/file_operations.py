@@ -68,7 +68,15 @@ class ExportToRizom(bpy.types.Operator):
     def execute(self, context):  # pylint: disable=unused-argument
         """Operator execution code."""
 
+        local_view = context.space_data.local_view
+
+        if local_view:
+            bpy.ops.view3d.localview(frame_selected=False)
+
         self.export_file(context)
+
+        if local_view:
+            bpy.ops.view3d.localview(frame_selected=False)
 
         return {'FINISHED'}
 
@@ -115,6 +123,14 @@ class ImportFromRizom(bpy.types.Operator):
     def execute(self, context):
         """Operator execution code."""
 
+        local_view = context.space_data.local_view
+
+        if local_view:
+            bpy.ops.view3d.localview(frame_selected=False)
+
         self.import_file(context)
+
+        if local_view:
+            bpy.ops.view3d.localview(frame_selected=False)
 
         return {'FINISHED'}
