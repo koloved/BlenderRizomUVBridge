@@ -1,5 +1,7 @@
 ## RizomUV Bridge For Blender
 
+Currently not working properly, will create a release when it is.
+
 ---
 
 ### Important

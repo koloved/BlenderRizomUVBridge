@@ -105,7 +105,7 @@ class ImportFromRizom(bpy.types.Operator):
             bpy.ops.object.join_uvs()
             bpy.ops.object.select_all(action='DESELECT')
             bpy.data.objects[obj.name + "_rizom"].select_set(True)
-            bpy.ops.object.delete(use_global=False, confirm=False)
+            #bpy.ops.object.delete(use_global=False, confirm=False)
 
         for obj in sel_objs:
             bpy.data.objects[obj.name].select_set(True)
