@@ -4,7 +4,8 @@
 
 ### Important
 
-The root addon folder must be named `rizomuv_bridge` for the addon to function.
+- The root addon folder must be named `rizomuv_bridge` for the addon to function.
+- Currently does not support multiple UV maps. (I plan to fix this at some point)
 
 
 ### How it works
