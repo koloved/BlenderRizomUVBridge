@@ -4,12 +4,12 @@
 
 import os
 import subprocess
+import tempfile
 import bpy
 import rizomuv_bridge.ma_utils.utils as mutil
 import rizomuv_bridge.ma_utils.lua_functions as lua
 
-TEMP_PATH = os.path.abspath(os.path.dirname(__file__))\
-    .replace("operators", "temp_mesh\\rizom_temp_mesh.fbx")
+TEMP_PATH = tempfile.gettempdir() + os.sep + "rizom_temp.fbx"
 
 
 class ExportToRizom(bpy.types.Operator):
@@ -105,7 +105,7 @@ class ImportFromRizom(bpy.types.Operator):
             bpy.ops.object.join_uvs()
             bpy.ops.object.select_all(action='DESELECT')
             bpy.data.objects[obj.name + "_rizom"].select_set(True)
-            #bpy.ops.object.delete(use_global=False, confirm=False)
+            bpy.ops.object.delete(use_global=False, confirm=False)
 
         for obj in sel_objs:
             bpy.data.objects[obj.name].select_set(True)
