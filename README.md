@@ -15,4 +15,4 @@
 - Save and close Rizom.
 - Click "Import" with your original objects selected. Note: You must not edit the objects in Blender before you import from Rizom.
 
-You can also set various settings in the UI panel that Rizom will open with.
+You can also set various startup settings in the UI panel.
