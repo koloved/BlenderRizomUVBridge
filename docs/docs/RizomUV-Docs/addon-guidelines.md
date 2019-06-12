@@ -6,6 +6,6 @@ has_children: true
 permalink: /docs/RizomUV-Docs
 ---
 
-# Addon Guidelines
+# Rizom
 
 Testing
