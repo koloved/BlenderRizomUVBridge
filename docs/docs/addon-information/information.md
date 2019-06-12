@@ -3,9 +3,8 @@ layout: default
 title: Addon Information
 nav_order: 3
 has_children: true
-permalink: /docs/information
+permalink: /docs/addon-information
 ---
 
-# Rizom
+## RizomUV Bridge - Addon Information
 
-Testing
