@@ -1,18 +1,22 @@
 {
-    "files.associations": {
-        "*.LXM": "plaintext",
-        "*.rvmat": "cpp",
-        "*.glslfx": "glsl",
-        "*.ext": "sqf"
+    "editor.tokenColorCustomizations":{
+        "[One Dark Pro Vivid]": {
+          "textMateRules": [
+            {
+              "scope":["source.python"],
+              "settings": {
+                "foreground": "#bebebe"
+              }
+            }
+          ]
+        }
     },
-    "git.ignoreMissingGitWarning": true,
     "python.autoComplete.extraPaths": [
-        "C:/Blender_Stubs"
-
-    ],
-
-    "workbench.colorTheme": "Dracula",
-    "editor.fontFamily": "verdana",
+        "C:/blender_stubs"
+        ],
+    "git.ignoreMissingGitWarning": true,
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "editor.fontFamily": "Fira Code",
     "terminal.integrated.fontFamily": "monospace",
     "editor.fontLigatures": true,
     "workbench.iconTheme": "material-icon-theme",
@@ -21,21 +25,21 @@
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": ["--max-line-length=120","--disable=E0401"],
+    "python.linting.lintOnSave": true,
     "python.autoComplete.addBrackets": true,
     "explorer.confirmDelete": false,
-    "python.jediEnabled": false,
-    "editor.fontSize": 12,
-    "python.formatting.autopep8Args": [
-        "--max-line-length=120"
-    ],
+    "editor.fontSize": 13,
+    "editor.fontWeight": "400",
     "explorer.confirmDragAndDrop": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.pythonPath": "C:\\Users\\MAshp\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "git.enabled": false,
+    "python.linting.mypyEnabled": false,
+    "python.linting.flake8Enabled": false,
     "files.exclude": {
-        "**/.exec.bat": true,
-        "**/.github": true,
-        "**/.sass-cache": true,
-        "LICENSE.txt": true
+      "**/.gitignore": true,
+      "**/.vscode": true,
+      "**/pylintrc": true
     }
 }

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: RizomUV
+title: Addon Information
 nav_order: 3
 has_children: true
-permalink: /docs/RizomUV-Docs
+permalink: /docs/information
 ---
 
 # Rizom
