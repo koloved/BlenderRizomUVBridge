@@ -12,10 +12,22 @@ permalink: /
 
 ## RizomUV Bridge For Blender
 
-[Source Code](https://github.com/MattAshpole/BlenderRizomUVBridge){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[Bug Tracker](https://github.com/MattAshpole/BlenderRizomUVBridge/issues){: .btn .fs-5 .mb-4 .mb-md-0 }
-{: .mx-15}
+[Source Code](https://github.com/MattAshpole/BlenderRizomUVBridge){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[Bug Tracker](https://github.com/MattAshpole/BlenderRizomUVBridge/issues){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }[Feature Request](https://github.com/MattAshpole/BlenderRizomUVBridge/issues/new?assignees=&labels=&template=feature_request.md&title=){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 This is the docs hub for my RizomUV Bridge for Blender, any relevant information regarding the addon will be compiled here.
 {: .fs-6 }
 
 ---
+
+## Supported Operating Systems
+
+- Windows
+{: .fs-6 }
+
+## Supported Blender Versions
+
+- 2.8
+{: .fs-6 }
+
+**Info:** This addon will never recieve support for any version below 2.8.
+{: .notice .notice-info}

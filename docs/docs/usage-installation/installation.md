@@ -24,9 +24,3 @@ Open up Blender and go to **Edit > Preferences > Add-ons**, click on **install**
 Find **RizomUV Bridge** and make sure it is enabled, now would also be a good time to check that the path to the rizom executable is correct; you can set this under the RizomUV Bridge Preferences panel.
 
 ---
----
-
-## How to uninstall
-
-
-test

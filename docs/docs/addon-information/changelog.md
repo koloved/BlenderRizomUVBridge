@@ -16,6 +16,7 @@ nav_order: 2
 ---
 
 ## Version 0.1.0
+{: .d-inline-block }
 DEPRECATED
 {: .label .label-red }
 
@@ -30,6 +31,7 @@ DEPRECATED
 ---
 
 ## Version 0.2.0
+{: .d-inline-block }
 STABLE
 {: .label .label-green }
 
