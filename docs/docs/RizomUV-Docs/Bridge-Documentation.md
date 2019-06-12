@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RizomUV
-nav_order: 1
+nav_order: 3
 has_children: true
 permalink: /docs/RizomUV-Docs
 ---
