@@ -45,6 +45,7 @@ class ExportToRizom(bpy.types.Operator):
         for obj in out_objs:
             bpy.data.objects[obj.name].select_set(True)
             obj.modifiers.clear()
+            obj.data.uv_layers.active_index = 0
 
         bpy.ops.export_scene.fbx(
             filepath=TEMP_PATH, use_selection=True, global_scale=1.0,
@@ -102,15 +103,31 @@ class ImportFromRizom(bpy.types.Operator):
         act_obj = bpy.context.active_object
         sel_objs = mutil.get_sel_meshes()
 
+        uv_maps = len(act_obj.data.uv_layers)
+
+        bpy.ops.ed.undo_push()
         bpy.ops.import_scene.fbx(filepath=TEMP_PATH)
 
         bpy.ops.object.select_all(action='DESELECT')
+
+        uv_index = -1
 
         for obj in sel_objs:
             import_obj = bpy.data.objects[obj.name + "_rizom"]
             bpy.data.objects[obj.name].select_set(True)
             context.view_layer.objects.active = import_obj
-            bpy.ops.object.join_uvs()
+
+            og_index = obj.data.uv_layers.active_index
+            uv_index = 0
+
+            for _ in range(uv_maps):
+                obj.data.uv_layers.active_index = uv_index
+                import_obj.data.uv_layers.active_index = uv_index
+                bpy.ops.object.join_uvs()
+                uv_index = uv_index + 1
+
+            obj.data.uv_layers.active_index = og_index
+
             bpy.ops.object.select_all(action='DESELECT')
             bpy.data.objects[obj.name + "_rizom"].select_set(True)
             bpy.ops.object.delete(use_global=False, confirm=False)
@@ -128,7 +145,11 @@ class ImportFromRizom(bpy.types.Operator):
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
 
-        self.import_file(context)
+        try:
+            self.import_file(context)
+        except KeyError:
+            self.report({'ERROR'}, "Item names do not match")
+            bpy.ops.ed.undo()
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
