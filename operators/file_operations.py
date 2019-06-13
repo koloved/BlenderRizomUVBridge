@@ -26,13 +26,46 @@ class ExportToRizom(bpy.types.Operator):
 
         return context.active_object is not None
 
-    @staticmethod
-    def export_file(context):
+    def uv_map_checks(self, objs):
+        """Check UV maps are valid for use in Rizom"""
+
+        valid = False
+
+        for obj in objs:
+            uv_maps = obj.data.uv_layers
+
+            for uvmap in uv_maps:
+                name = uvmap.name
+                check = name.isalnum()
+                if not check:
+                    self.report({'ERROR'}, "Invalid UV Map name: " + name)
+                    bpy.ops.ed.undo()
+                    return valid
+
+        count_check = len(objs[0].data.uv_layers)
+
+        for obj in objs[1:]:
+            uv_maps = len(obj.data.uv_layers)
+            if uv_maps != count_check:
+                self.report({'ERROR'}, '"' + obj.name + '"'
+                            + " UV map count is not equal to that of "
+                            + '"' + objs[0].name + '"')
+                bpy.ops.ed.undo()
+                return valid
+
+        valid = True
+        return valid
+
+    def export_file(self, context):
         """Export the file."""
 
         act_obj = bpy.context.active_object
         sel_objs = mutil.get_sel_meshes()
         out_objs = []
+
+        bpy.ops.ed.undo_push()
+        if not self.uv_map_checks(sel_objs):
+            return
 
         for obj in sel_objs:
             new_obj = obj.copy()
