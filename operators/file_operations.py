@@ -169,7 +169,12 @@ class ImportFromRizom(bpy.types.Operator):
             bpy.data.objects[obj.name].select_set(True)
 
         context.view_layer.objects.active = act_obj
-
+        
+        tmpString = "" + '{:04d}'.format(Names[ImportList.index(imObjs)][1])
+        bpy.ops.object.mode_set(mode = 'EDIT') 
+        bpy.ops.uv.seams_from_islands(mark_seams=True, mark_sharp=True) 
+        bpy.ops.object.mode_set(mode = 'OBJECT')
+        
     def execute(self, context):
         """Operator execution code."""
 
