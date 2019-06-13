@@ -34,8 +34,8 @@ DEPRECATED
 
 ## Version 0.2.0
 {: .d-inline-block }
-STABLE
-{: .label .label-green }
+DEPRECATED
+{: .label .label-red }
 
 [rizomuv_bridge.zip](https://github.com/MattAshpole/BlenderRizomUVBridge/releases/download/0.2.0/rizomuv_bridge.zip)
 
@@ -50,5 +50,17 @@ STABLE
 - Added support for multiple UV sets.
 - Added links to documentation in addon preferences
 
+---
 
-### Known Bugs
+## Version 0.2.1
+{: .d-inline-block }
+STABLE
+{: .label .label-green }
+
+[rizomuv_bridge.zip](https://github.com/MattAshpole/BlenderRizomUVBridge/releases/download/0.2.1/rizomuv_bridge.zip)
+
+### Changed
+- Changed startup script default to Sharp Edges Unwrap
+
+### Added
+- Added option to automatically create seams and sharp edges from UV island boundaries.

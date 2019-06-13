@@ -37,6 +37,10 @@ class RizomUVPanel(bpy.types.Panel):
 
         row = box.row(align=True)
         row.scale_y = 1.25
+        row.prop(win_manager.RizomUVPanelProperties, "image_path")
+
+        row = box.row(align=True)
+        row.scale_y = 1.25
         if not sel:
             row.enabled = False
         row.operator("ruv.rizom_export", text="Export")
@@ -49,7 +53,7 @@ class RizomUVPanel(bpy.types.Panel):
 
         row = box.row(align=True)
         row.scale_y = 1.25
-        row.prop(win_manager.RizomUVPanelProperties, "image_path")
+        row.prop(win_manager.RizomUVPanelProperties, "seams")
 
 
 class RizomUVSettingsPanel(bpy.types.Panel):
@@ -95,7 +99,7 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
 
     script_run_des = "Run a LUA script when Rizom launches"
     script_run: bpy.props.EnumProperty(
-        name="", default='MOSAIC', items=(
+        name="", default='SHARP_EDGES', items=(
             ('EDIT_UV', "No Script",
              "Exports current UV layout in its present condition."),
             ('SHARP_EDGES', "Sharp Edges Unwrap",
@@ -135,3 +139,8 @@ class RizomUVPanelProperties(bpy.types.PropertyGroup):
     orient_step_des = "Step angle for finding best orientation while packing"
     orient_step: bpy.props.IntProperty(name="Step Angle", default=45, min=0,
                                        max=180, subtype='ANGLE')
+
+    seams_des = ("Creates seams and sharp edges from UV"
+                 " island boundaries after importing")
+    seams: bpy.props.BoolProperty(name="Import Seams", description=seams_des,
+                                  default=True)

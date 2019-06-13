@@ -129,6 +129,13 @@ class ImportFromRizom(bpy.types.Operator):
 
         return context.active_object is not None
 
+    def mark_seams(self):
+        """Mark seams as sharp edges on import"""
+
+        bpy.ops.object.mode_set(mode='EDIT')
+        bpy.ops.uv.seams_from_islands(mark_seams=True, mark_sharp=True)
+        bpy.ops.object.mode_set(mode='OBJECT')
+
     @staticmethod
     def import_file(context):
         """Import the file, transfer the UVs and delete imported objects."""
@@ -174,6 +181,7 @@ class ImportFromRizom(bpy.types.Operator):
         """Operator execution code."""
 
         local_view = context.space_data.local_view
+        props = bpy.data.window_managers["WinMan"].RizomUVPanelProperties
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
@@ -183,6 +191,9 @@ class ImportFromRizom(bpy.types.Operator):
         except KeyError:
             self.report({'ERROR'}, "Item names do not match")
             bpy.ops.ed.undo()
+        
+        if props.seams:
+            self.mark_seams()
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
