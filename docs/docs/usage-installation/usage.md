@@ -54,7 +54,7 @@ Select your objects and click the **Import** button, each UV set on your origina
 
 ### Texture Image Export
 
-This field allows you to select a texture map that you can see in the RizomUV viewport and grid background. Once RizomUV opens you need to set your shading mode to **Viewport Texture Custom**, your texture will then be vvisible.
+This field allows you to select a texture map that you can see in the RizomUV viewport and grid background. Once RizomUV opens you need to set your shading mode to **Viewport Texture Custom**, your texture will then be visible.
 
 **Warning:** The file format must be one of: .tiff, .png, .jpg, .tga or .bmp
 {: .notice .notice-warning}
