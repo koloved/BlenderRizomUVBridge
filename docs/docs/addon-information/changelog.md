@@ -20,6 +20,8 @@ nav_order: 2
 DEPRECATED
 {: .label .label-red }
 
+[rizomuv_bridge.zip](https://github.com/MattAshpole/BlenderRizomUVBridge/releases/download/0.1.0/rizomuv_bridge.zip)
+
 ### Improved
 - Improved string concatenation during lua script construction.
 
@@ -34,6 +36,8 @@ DEPRECATED
 {: .d-inline-block }
 STABLE
 {: .label .label-green }
+
+[rizomuv_bridge.zip](https://github.com/MattAshpole/BlenderRizomUVBridge/releases/download/0.2.0/rizomuv_bridge.zip)
 
 ### Improved
 - Improved error catching and added report messages.
