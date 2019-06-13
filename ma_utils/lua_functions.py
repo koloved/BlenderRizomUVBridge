@@ -71,7 +71,9 @@ def script_strings():
 
     image = ("ZomLoadUserTexture("'"' + props.image_path + '"'")")
 
-    if image.lower().endswith((".tiff", ".png", ".jpg", ".tga", ".bmp")):
+    valid_extensions = (".tiff", ".png", ".jpg", ".tga", ".bmp")
+
+    if props.image_path.lower().endswith(valid_extensions):
         image = '/'.join(image.split('\\'))
 
     else:
