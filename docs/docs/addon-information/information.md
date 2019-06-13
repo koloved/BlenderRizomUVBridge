@@ -7,4 +7,3 @@ permalink: /docs/addon-information
 ---
 
 ## RizomUV Bridge - Addon Information
-
