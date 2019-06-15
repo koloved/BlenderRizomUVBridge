@@ -5,7 +5,7 @@
 import bpy
 
 from .preferences import RizomUVBridgeAddonPreferences
-from .operators.file_operations import ExportToRizom, ImportFromRizom
+from .operators.manual_operations import ExportToRizom, ImportFromRizom
 from .ui.bridge_panel import RizomUVPanel, RizomUVSettingsPanel,\
     RizomUVPanelProperties
 

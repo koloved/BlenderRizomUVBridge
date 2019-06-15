@@ -129,7 +129,8 @@ class ImportFromRizom(bpy.types.Operator):
 
         return context.active_object is not None
 
-    def mark_seams(self):
+    @staticmethod
+    def mark_seams():
         """Mark seams as sharp edges on import"""
 
         bpy.ops.object.mode_set(mode='EDIT')
@@ -191,7 +192,7 @@ class ImportFromRizom(bpy.types.Operator):
         except KeyError:
             self.report({'ERROR'}, "Item names do not match")
             bpy.ops.ed.undo()
-        
+
         if props.seams:
             self.mark_seams()
 
