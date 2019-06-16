@@ -24,26 +24,27 @@ The RizomUV Bridge panel can be found in the 3D View Sidebar, the hotkey for the
 
 ---
 
+## RizomUV Bridge
+
 ---
 
-## File Operations
+## UV Operations
 
-### Exporting
+### Edit
 
-Select one or more objects and click the **Export** button, RizomUV will open with your objects loaded and run a auto UV script (if you selected one).
+The **Edit** button opens RizomUV with the most recent file loaded and whatever progress was saved, it will not export anything at all from blender. This button will be unavailable if you have never exported anything from the bridge before.
 
-#### Startup Script
+### Export
 
-These are scripts that will be automatically run when RizomUV opens, they automatically place seams and pack a quick UV map. This provides a good base to begin creating your final UV map.
+Select one or more objects and click the **Export** button, RizomUV will open with your objects loaded and run a auto UV script (if you selected one). If the **Auto UV** box is checked this button will instead create an automatic UV map and instantly apply it in blender.
 
 **Warning:** Your UV map names must contain alphabetical and numerical characters only.
 {: .notice .notice-warning}
 
 **Warning:** Each object needs to have the same UV maps. For example, if the first object has two UV maps; map1 and map2, every object you are exporting should have those maps.
 {: .notice .notice-warning}
----
 
-### Importing
+### Import
 
 Select your objects and click the **Import** button, each UV set on your original objects will be updated.
 
@@ -51,6 +52,38 @@ Select your objects and click the **Import** button, each UV set on your origina
 {: .notice .notice-warning}
 
 ---
+
+## Export Settings
+
+### Script
+
+These are scripts that will be automatically run when RizomUV opens, they automatically place seams and pack a quick UV map. I often begin by using one of these scripts then finalize the UV map manually.
+
+**Info:** These scripts will respect the settings that you choose in the **RizomUV Settings** panel, if you select a high number of mutations for example; it will take longer for the script to complete.
+{: .notice .notice-info}
+
+### Auto UV
+
+This enables the automatic UV mapping functionality, while this is checked clicking on export will cause RizomUV to perform the autoseams script you have selected before closing and transferring the UV map to your blender objects.
+
+**Info:** While Auto UV is enabled the **Edit** button will be unavailable.
+{: .notice .notice-info}
+
+---
+
+## Import Settings
+
+### Mark Seams
+
+When this is checked Blender will automatically mark the boundaries of all UV islands as sharp edges upon import. 
+
+---
+
+## RizomUV Settings
+
+---
+
+## Viewport
 
 ### Texture Image Export
 
@@ -61,8 +94,38 @@ This field allows you to select a texture map that you can see in the RizomUV vi
 
 ---
 
+## Layout
+
+### Island Padding
+
+This sets the **margin** and **spacing** settings in RizomUV, it controls the number of pixels between each island and the numbe of pixels between the tile border and the islands.
+
+### Map Resolution
+
+This sets the **Map Rez** setting in RizomUV, it controls the horizontal resolution of the texture map.
+
 ---
 
-## RizomUV Settings
+## Packing
 
-This section of the UI allows you to choose some of the settings RizomUV loads up with, the settings are fairly self explanatory and have tooltips if you need them.
+### Quality
+
+This sets the **Quality** setting in RizomUV, it controls the resolution of the packing algorithm.
+
+**Info:** Higher numbers will result in more precise packs but longer computation times.
+{: .notice .notice-info}
+
+### Mutations
+
+This sets the **Mutations** setting in RizomUV, it controls the number of trials when finding the best packing solution.
+
+**Info:** Higher numbers will usually result in better packs but longer computation times.
+{: .notice .notice-info}
+
+### Pre-Orientation
+
+This sets the **Initial Orientation** setting in RizomUV, it controls the bounding box pre-orientation before packing.
+
+### Step Angle
+
+This sets the **Step** setting in RizomUV, it controls the step angle when finding the bets orientation while packing.

@@ -46,13 +46,13 @@ class RizomUVPanel(bpy.types.Panel):
             export = "Export (Auto UV)"
         else:
             export = "Export"
-        row.operator("ruv.rizom_export", text=export)
+        row.operator("ruv.rizom_export", text=export, icon='EXPORT')
 
         row = box.row(align=True)
         row.scale_y = 1.25
         if not sel:
             row.enabled = False
-        row.operator("ruv.rizom_import", text="Import")
+        row.operator("ruv.rizom_import", text="Import", icon='IMPORT')
 
         # Export Settings
         box = layout.box()
@@ -100,7 +100,7 @@ class RizomUVSettingsPanel(bpy.types.Panel):
         box = layout.box()
 
         row = box.row(align=True)
-        row.label(text="Viewport:", icon='SETTINGS')
+        row.label(text="Viewport:", icon='VIEW3D')
 
         row = box.row(align=True)
         row.scale_y = 1.25
@@ -112,7 +112,7 @@ class RizomUVSettingsPanel(bpy.types.Panel):
         box = layout.box()
 
         row = box.row(align=True)
-        row.label(text="Layout:", icon='SETTINGS')
+        row.label(text="Layout:", icon='GROUP_UVS')
 
         row = box.row(align=True)
         row.scale_y = 1.25
@@ -126,7 +126,7 @@ class RizomUVSettingsPanel(bpy.types.Panel):
 
         box = layout.box()
         row = box.row(align=True)
-        row.label(text="Packing:", icon='SETTINGS')
+        row.label(text="Packing:", icon='PACKAGE')
         row = box.row(align=True)
         row.scale_y = 1.25
         row.prop(props, "pack_qual")
