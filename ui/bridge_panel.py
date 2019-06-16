@@ -15,7 +15,7 @@ class RizomUVPanel(bpy.types.Panel):
     bl_region_type = "UI"
     bl_category = "RizomUV"
     bl_context = "objectmode"
-    bl_label = "Standard Bridge"
+    bl_label = "RizomUV Bridge"
 
     def draw(self, context):
         """Draw the UI."""
