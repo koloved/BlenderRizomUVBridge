@@ -59,6 +59,8 @@ class ExportToRizom(bpy.types.Operator):
     def export_file(self, context):
         """Export the file."""
 
+        props = bpy.data.window_managers["WinMan"].RizomUVPanelProperties
+
         act_obj = bpy.context.active_object
         sel_objs = mutil.get_sel_meshes()
         out_objs = []
@@ -97,17 +99,23 @@ class ExportToRizom(bpy.types.Operator):
         prefs = bpy.context.preferences.addons["rizomuv_bridge"].preferences
         exe = prefs.rizomuv_path
 
-        subprocess.Popen([exe, TEMP_PATH, '-cfi' + script])
+        process = subprocess.Popen([exe, TEMP_PATH, '-cfi' + script])
+        if props.auto_uv:
+            process.communicate()
 
     def execute(self, context):  # pylint: disable=unused-argument
         """Operator execution code."""
 
         local_view = context.space_data.local_view
+        props = bpy.data.window_managers["WinMan"].RizomUVPanelProperties
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
 
         self.export_file(context)
+
+        if props.auto_uv:
+            bpy.ops.ruv.rizom_import()
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
@@ -198,5 +206,33 @@ class ImportFromRizom(bpy.types.Operator):
 
         if local_view:
             bpy.ops.view3d.localview(frame_selected=False)
+
+        self.report({'INFO'}, "UV maps transferred")
+
+        return {'FINISHED'}
+
+
+class EditInRizom(bpy.types.Operator):
+    """Open the last file in Rizom (No export)."""
+
+    bl_description = "Open the most recent file in Rizom (no export)"
+    bl_idname = "ruv.rizom_edit"
+    bl_label = "Edit (RizomUV)"
+    bl_options = {'REGISTER', 'INTERNAL'}
+
+    @staticmethod
+    def open_file():
+        """Open most recent file in RizomUV"""
+        script = lua.write_script_edit()
+
+        prefs = bpy.context.preferences.addons["rizomuv_bridge"].preferences
+        exe = prefs.rizomuv_path
+
+        subprocess.Popen([exe, TEMP_PATH, '-cfi' + script])
+
+    def execute(self, context):
+        """Operator execution code."""
+
+        self.open_file()
 
         return {'FINISHED'}

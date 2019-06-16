@@ -5,7 +5,8 @@
 import bpy
 
 from .preferences import RizomUVBridgeAddonPreferences
-from .operators.manual_operations import ExportToRizom, ImportFromRizom
+from .operators.file_operations import ExportToRizom, ImportFromRizom,\
+    EditInRizom
 from .ui.bridge_panel import RizomUVPanel, RizomUVSettingsPanel,\
     RizomUVPanelProperties
 
@@ -17,13 +18,15 @@ bl_info = {  # pylint: disable=invalid-name
     "blender": (2, 80, 0),
     "location": "View3D > Sidebar",
     "wiki_url": "https://mattashpole.github.io/BlenderRizomUVBridge/",
-    "tracker_url": "https://github.com/MattAshpole/BlenderRizomUVBridge/issues",
+    "tracker_url": ("https://github.com/MattAshpole/"
+                    "BlenderRizomUVBridge/issues"),
     "category": "UV"
 }
 
 CLASSES = [RizomUVBridgeAddonPreferences,
            ExportToRizom,
            ImportFromRizom,
+           EditInRizom,
            RizomUVPanelProperties,
            RizomUVPanel,
            RizomUVSettingsPanel]

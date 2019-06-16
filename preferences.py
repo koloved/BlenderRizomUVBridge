@@ -15,7 +15,7 @@ class RizomUVBridgeAddonPreferences(bpy.types.AddonPreferences):
     def draw(self, context):  # pylint: disable=unused-argument
         """Draw UI"""
 
-        #props = bpy.context.preferences.addons["rizomuv_bridge"].preferences
+        # props = bpy.context.preferences.addons["rizomuv_bridge"].preferences
 
         layout = self.layout
 
