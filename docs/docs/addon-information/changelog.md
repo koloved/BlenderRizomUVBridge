@@ -82,6 +82,6 @@ STABLE
 - Renamed scripts.
 
 ### Added
-- Edit mode (opens RizomUI with the most recent file instead of overwriting with the selected objects).
+- Edit mode (opens RizomUV with the most recent file instead of overwriting with the selected objects).
 - Added automatic UV mapping, one click automatic trip between RizomUV and Blender using the autoseams scripts.
 - More settings (packing quality and mutations).
